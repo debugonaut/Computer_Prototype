@@ -6,9 +6,7 @@
   "scripts": {
     "start": "live-server --port=3000 --open=/index.html",
     "dev": "live-server --port=3000 --open=/index.html --watch=.",
-    "build": "npm run minify-css && npm run minify-js",
-    "minify-css": "cleancss -o dist/styles.min.css styles.css",
-    "minify-js": "uglifyjs script.js -o dist/script.min.js",
+    "build": "echo 'Static site ready'",
     "serve": "http-server -p 8080 -o"
   },
   "keywords": ["ecommerce", "electronics", "shopping"],
