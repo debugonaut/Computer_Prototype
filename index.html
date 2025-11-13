@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELESHOP - Premium Electronics Store</title>
+    <meta name="description" content="Discover premium electronics at ELESHOP. Shop smartphones, laptops, headphones, tablets, and more with exclusive deals and fast shipping.">
+    <meta name="keywords" content="electronics, smartphones, laptops, headphones, tablets, gaming, cameras, smart home, premium electronics">
+    <meta name="author" content="ELESHOP">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ELESHOP - Premium Electronics">
+    <meta property="og:description" content="Discover premium electronics with exclusive deals">
+    <meta property="og:site_name" content="ELESHOP">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="logo">
+                        <h1>ELESHOP</h1>
+                    </div>
+                    <h2>Sign in</h2>
+                    <p>to continue to ELESHOP</p>
+                </div>
+                
+                <div class="login-form">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder=" " required>
+                        <label for="username">Email or username</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder=" " required>
+                        <label for="password">Password</label>
+                    </div>
+                    
+                    <div class="form-options">
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary">Create account</button>
+                        <button type="button" class="btn-primary" onclick="login()">Next</button>
+                    </div>
+                </div>
+                
+                <div class="login-footer">
+                    <div class="language-selector">
+                        <select>
+                            <option>English (United States)</option>
+                        </select>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">Help</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Site -->
+    <div id="main-site" class="page" style="display: none;">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <h1>ELESHOP</h1>
+            </div>
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search products..." oninput="searchProducts()">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <button class="wishlist-btn" onclick="toggleWishlistView()">❤️ Wishlist (<span id="wishlist-count">0</span>)</button>
+                <div class="cart-info">
+                    🛒 <span id="cart-count">0</span> items
+                    <button onclick="showCheckout()">Checkout</button>
+                </div>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Notifications -->
+        <div id="notification" class="notification"></div>
+
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <h2>🎉 Special Offers - Up to 30% Off!</h2>
+            <p>Limited time deals on premium electronics</p>
+        </div>
+
+        <!-- Filters & Sort -->
+        <div class="filters">
+            <select id="category-filter" onchange="filterProducts()">
+                <option value="">All Categories</option>
+                <option value="smartphones">📱 Smartphones</option>
+                <option value="laptops">💻 Laptops</option>
+                <option value="headphones">🎧 Headphones</option>
+                <option value="tablets">📱 Tablets</option>
+                <option value="accessories">⌨️ Accessories</option>
+                <option value="gaming">🎮 Gaming</option>
+                <option value="cameras">📷 Cameras</option>
+                <option value="smart-home">🏠 Smart Home</option>
+            </select>
+            <select id="price-filter" onchange="filterProducts()">
+                <option value="">All Prices</option>
+                <option value="0-100">$0 - $100</option>
+                <option value="100-500">$100 - $500</option>
+                <option value="500-1000">$500 - $1000</option>
+                <option value="1000+">$1000+</option>
+            </select>
+            <select id="sort-filter" onchange="sortProducts()">
+                <option value="">Sort By</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name A-Z</option>
+                <option value="rating">⭐ Rating</option>
+            </select>
+            <button class="clear-filters" onclick="clearFilters()">Clear All</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="products-grid">
+            <!-- Products will be loaded here -->
+        </div>
+
+        <!-- Wishlist View -->
+        <div id="wishlist-view" class="wishlist-view" style="display: none;">
+            <h2>❤️ Your Wishlist</h2>
+            <div id="wishlist-grid" class="products-grid"></div>
+        </div>
+        
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading amazing products...</p>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ELESHOP</h3>
+                    <p>Your trusted destination for premium electronics. Quality products, competitive prices, exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#">🐦 Twitter</a>
+                        <a href="#">📷 Instagram</a>
+                        <a href="#">📺 YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Headphones</a></li>
+                        <li><a href="#">Gaming</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ELESHOP. All rights reserved. | Made with ❤️ for tech enthusiasts</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="modal" style="display: none;">
+        <div class="modal-content quick-view-content">
+            <span class="close" onclick="closeQuickView()">&times;</span>
+            <div id="quick-view-details"></div>
+        </div>
+    </div>
+
+    <!-- Reviews Modal -->
+    <div id="reviews-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeReviews()">&times;</span>
+            <div id="reviews-content"></div>
+        </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <div id="checkout-page" class="page" style="display: none;">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h2>Secure Checkout</h2>
+                <div class="progress-bar">
+                    <div class="progress-step active">Cart</div>
+                    <div class="progress-step active">Payment</div>
+                    <div class="progress-step">Complete</div>
+                </div>
+            </div>
+            
+            <div class="checkout-content">
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="cart-items"></div>
+                    <div class="total-section">
+                        <div class="subtotal">Subtotal: $<span id="subtotal-amount">0</span></div>
+                        <div class="shipping">Shipping: Free</div>
+                        <div class="total">Total: $<span id="total-amount">0</span></div>
+                    </div>
+                </div>
+                
+                <div class="payment-form">
+                    <h3>Payment Details</h3>
+                    <div class="form-section">
+                        <h4>Contact Information</h4>
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Shipping Address</h4>
+                        <input type="text" placeholder="Street Address" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="City" required>
+                            <input type="text" placeholder="ZIP Code" required>
+                        </div>
+                        <input type="text" placeholder="Country" required>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Payment Method</h4>
+                        <input type="text" placeholder="Card Number" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="MM/YY" required>
+                            <input type="text" placeholder="CVV" required>
+                        </div>
+                        <input type="text" placeholder="Cardholder Name" required>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button class="btn-secondary" onclick="backToProducts()">← Back to Shop</button>
+                        <button class="btn-primary" onclick="completeOrder()">Complete Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

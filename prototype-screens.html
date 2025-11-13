@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroShop - Prototype Screens</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .screen { width: 393px; height: 852px; background: white; margin: 20px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; display: inline-block; vertical-align: top; }
+        .screen h3 { background: #007bff; color: white; margin: 0; padding: 15px; text-align: center; }
+        .content { padding: 20px; }
+        .btn { background: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; width: 100%; margin: 10px 0; }
+        .input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; margin: 10px 0; box-sizing: border-box; }
+        .product-card { border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin: 10px 0; text-align: center; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .nav { background: #007bff; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>ElectroShop - Prototype Screens</h1>
+    
+    <!-- Login Screen -->
+    <div class="screen">
+        <h3>Login Screen</h3>
+        <div class="content">
+            <h2 style="text-align: center; margin-bottom: 30px;">Welcome to ElectroShop</h2>
+            <input class="input" placeholder="Email" value="email@demo.com">
+            <input class="input" placeholder="Password" type="password" value="password123">
+            <button class="btn">Login</button>
+            <div style="text-align: center; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                <small>Demo: email@demo.com / password123</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Screen -->
+    <div class="screen">
+        <h3>Home Screen</h3>
+        <div class="nav">
+            <span>⚡ ElectroShop</span>
+            <span>Cart (0)</span>
+        </div>
+        <div class="hero">
+            <h2>Latest Electronic Products</h2>
+            <p>Discover cutting-edge technology</p>
+            <button class="btn">Shop Now</button>
+        </div>
+    </div>
+
+    <!-- Products Screen -->
+    <div class="screen">
+        <h3>Products Screen</h3>
+        <div class="nav">
+            <span>⚡ ElectroShop</span>
+            <span>Cart (2)</span>
+        </div>
+        <div class="content">
+            <input class="input" placeholder="Search products...">
+            <select class="input">
+                <option>All Categories</option>
+                <option>Smartphones</option>
+                <option>Laptops</option>
+            </select>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div style="font-size: 30px;">📱</div>
+                    <h4>iPhone 15 Pro</h4>
+                    <p>$1199</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div style="font-size: 30px;">💻</div>
+                    <h4>MacBook Air</h4>
+                    <p>$1299</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Screen -->
+    <div class="screen">
+        <h3>Product Detail</h3>
+        <div class="nav">
+            <span>← Back</span>
+            <span>Cart (2)</span>
+        </div>
+        <div class="content">
+            <div style="font-size: 60px; text-align: center; margin: 20px 0;">📱</div>
+            <h2>iPhone 15 Pro</h2>
+            <h3 style="color: #007bff;">$1199</h3>
+            <p>Latest iPhone with A17 Pro chip, titanium design, and advanced camera system.</p>
+            <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+                <button style="width: 40px; height: 40px;">-</button>
+                <span style="margin: 0 20px;">1</span>
+                <button style="width: 40px; height: 40px;">+</button>
+            </div>
+            <button class="btn">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart Screen -->
+    <div class="screen">
+        <h3>Shopping Cart</h3>
+        <div class="nav">
+            <span>⚡ ElectroShop</span>
+            <span>Cart (2)</span>
+        </div>
+        <div class="content">
+            <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <div style="display: flex; align-items: center;">
+                    <span style="font-size: 30px; margin-right: 15px;">📱</span>
+                    <div style="flex: 1;">
+                        <h4>iPhone 15 Pro</h4>
+                        <p>$1199 each</p>
+                    </div>
+                    <div>
+                        <button>-</button> 1 <button>+</button>
+                    </div>
+                </div>
+            </div>
+            <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <div style="display: flex; align-items: center;">
+                    <span style="font-size: 30px; margin-right: 15px;">🎧</span>
+                    <div style="flex: 1;">
+                        <h4>AirPods Pro</h4>
+                        <p>$249 each</p>
+                    </div>
+                    <div>
+                        <button>-</button> 1 <button>+</button>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>Total: $1448.00</h3>
+                <button class="btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Screen -->
+    <div class="screen">
+        <h3>Checkout</h3>
+        <div class="nav">
+            <span>← Back</span>
+            <span>ElectroShop</span>
+        </div>
+        <div class="content">
+            <h4>Shipping Information</h4>
+            <input class="input" placeholder="First Name">
+            <input class="input" placeholder="Last Name">
+            <input class="input" placeholder="Address">
+            <input class="input" placeholder="City">
+            <h4>Payment Information</h4>
+            <input class="input" placeholder="Card Number">
+            <div style="display: flex; gap: 10px;">
+                <input class="input" placeholder="MM/YY" style="width: 48%;">
+                <input class="input" placeholder="CVV" style="width: 48%;">
+            </div>
+            <button class="btn">Place Order - $1448.00</button>
+        </div>
+    </div>
+
+    <!-- Profile Screen -->
+    <div class="screen">
+        <h3>User Profile</h3>
+        <div class="nav">
+            <span>⚡ ElectroShop</span>
+            <span>Logout</span>
+        </div>
+        <div class="content">
+            <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4>Account Information</h4>
+                <p><strong>Name:</strong> Demo User</p>
+                <p><strong>Email:</strong> email@demo.com</p>
+            </div>
+            <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4>Recent Order</h4>
+                <p>Order #12345</p>
+                <p>Total: $1448.00</p>
+                <p>Status: Processing</p>
+            </div>
+            <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4>Wishlist (1 item)</h4>
+                <p>💻 MacBook Pro 16" - $2499</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div class="screen">
+        <h3>Register Screen</h3>
+        <div class="content">
+            <h2 style="text-align: center; margin-bottom: 30px;">Create Account</h2>
+            <input class="input" placeholder="Full Name">
+            <input class="input" placeholder="Email">
+            <input class="input" placeholder="Password" type="password">
+            <input class="input" placeholder="Confirm Password" type="password">
+            <button class="btn">Register</button>
+            <div style="text-align: center; margin-top: 20px;">
+                <small>Already have an account? <span style="color: #007bff;">Login</span></small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Screen -->
+    <div class="screen">
+        <h3>Order Success</h3>
+        <div class="nav">
+            <span>⚡ ElectroShop</span>
+            <span>Cart (0)</span>
+        </div>
+        <div class="content" style="text-align: center; padding-top: 100px;">
+            <div style="font-size: 80px; color: #28a745; margin-bottom: 30px;">✅</div>
+            <h2 style="color: #28a745;">Order Placed Successfully!</h2>
+            <p style="margin: 30px 0;">Thank you for your purchase. Your order #12345 has been confirmed.</p>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 30px 0;">
+                <h4>Order Details</h4>
+                <p>Order ID: #12345</p>
+                <p>Total: $1448.00</p>
+                <p>Estimated Delivery: 3-5 days</p>
+            </div>
+            <button class="btn">Continue Shopping</button>
+            <button class="btn" style="background: #6c757d; margin-top: 10px;">Track Order</button>
+        </div>
+    </div>
+
+    <!-- Search Results Screen -->
+    <div class="screen">
+        <h3>Search Results</h3>
+        <div class="nav">
+            <span>⚡ ElectroShop</span>
+            <span>Cart (2)</span>
+        </div>
+        <div class="content">
+            <input class="input" placeholder="Search products..." value="iPhone">
+            <p style="margin: 15px 0; color: #666;">Found 3 results for "iPhone"</p>
+            <div class="product-card">
+                <div style="font-size: 30px;">📱</div>
+                <h4>iPhone 15 Pro</h4>
+                <p>$1199</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div style="font-size: 30px;">📱</div>
+                <h4>iPhone 14</h4>
+                <p>$899</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div style="font-size: 30px;">📱</div>
+                <h4>iPhone 13</h4>
+                <p>$699</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
